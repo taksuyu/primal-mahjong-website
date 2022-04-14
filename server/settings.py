@@ -43,7 +43,8 @@ if DEBUG:
     ]
 else:
     ALLOWED_HOSTS = [
-        'primalmahjong.club'
+        'primalmahjong.club',
+        'primal-mahjong-website.herokuapp.com'
     ]
 
 # COOKIES
@@ -75,7 +76,7 @@ INSTALLED_APPS = [
     # 'djangocms_picture',
     # 'djangocms_video',
     # 'djangocms_googlemap',
-    # 'djangocms_snippet',
+    'djangocms_snippet',
     'djangocms_style',
     'menus',
     'treebeard',
