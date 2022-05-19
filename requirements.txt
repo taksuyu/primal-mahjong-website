@@ -303,7 +303,7 @@ markupsafe==2.1.1; python_version >= "3.8" and python_full_version < "3.0.0" and
 oauthlib==3.2.0; python_version >= "3.6" and python_full_version < "3.0.0" or python_full_version >= "3.4.0" and python_version >= "3.6" \
     --hash=sha256:6db33440354787f9b7f3a6dbd4febf5d0f93758354060e802f6c06cb493022fe \
     --hash=sha256:23a8208d75b902797ea29fd31fa80a15ed9dc2c6c16fe73f5d346f83f6fa27a2
-pillow==9.1.0; python_version >= "3.7" and python_version < "4" \
+pillow==9.1.1; python_version >= "3.7" and python_version < "4" \
     --hash=sha256:af79d3fde1fc2e33561166d62e3b63f0cc3e47b5a3a2e5fea40d4917754734ea \
     --hash=sha256:55dd1cf09a1fd7c7b78425967aacae9b0d70125f7d3ab973fadc7b5abc3de652 \
     --hash=sha256:66822d01e82506a19407d1afc104c3fcea3b81d5eb11485e593ad6b8492f995a \
