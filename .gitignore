@@ -10,5 +10,8 @@ staticfiles
 # Svelte
 svelte/public
 
+# Tailwind
+theme/static
+
 # Code
 .history

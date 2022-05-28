@@ -10,6 +10,8 @@
             <path value="file://$PROJECT_DIR$/svelte/public" />
             <path value="file://$PROJECT_DIR$/svelte/public/build" />
             <path value="file://$PROJECT_DIR$/templates" />
+            <path value="file://$PROJECT_DIR$/theme/static" />
+            <path value="file://$PROJECT_DIR$/theme" />
           </resourceRoots>
         </entryData>
       </entry>

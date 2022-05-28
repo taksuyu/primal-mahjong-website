@@ -17,12 +17,11 @@ import environ
 
 # Set defaults for certain env variables
 env = environ.Env(
-    DEBUG=(bool, False),
     ROLLBAR_TOKEN=(str, '')
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Read env variables from file or global env
 environ.Env.read_env(BASE_DIR / '.env')
@@ -33,23 +32,9 @@ environ.Env.read_env(BASE_DIR / '.env')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
-
-if DEBUG:
-    ALLOWED_HOSTS = [
-        '127.0.0.1',
-        '0.0.0.0'
-    ]
-else:
-    ALLOWED_HOSTS = [
-        'primalmahjong.club',
-        'primal-mahjong-website.herokuapp.com'
-    ]
-
 # COOKIES
 # Recommended by `manage.py check --deploy`
-SESSION_COOKIE_SECURE = SECURE_SSL_REDIRECT = CSRF_COOKIE_SECURE = False if DEBUG else True
+# SESSION_COOKIE_SECURE = SECURE_SSL_REDIRECT = CSRF_COOKIE_SECURE = False if DEBUG else True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -83,6 +68,7 @@ INSTALLED_APPS = [
     'sekizai',
     'tailwind',
     'theme',
+    'django_browser_reload',
     'events',
 ]
 
@@ -102,6 +88,7 @@ MIDDLEWARE = [
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
     'cms.middleware.utils.ApphookReloadMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
@@ -123,7 +110,6 @@ TEMPLATES = [
                 'social_django.context_processors.login_redirect',
                 'sekizai.context_processors.sekizai',
                 'cms.context_processors.cms_settings',
-
             ],
         },
     },
@@ -186,8 +172,11 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
-    # BASE_DIR / "svelte" / "public" / "build"
+    # BASE_DIR / "svelte" / "public" / "build",
+    BASE_DIR / "theme" / "static",
 ]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATIC_URL = '/static/'
 
@@ -195,19 +184,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Rollbar
-
-if env('ROLLBAR_TOKEN') != '':
-    ROLLBAR = {
-        'access_token': env('ROLLBAR_TOKEN'),
-        'environment': 'development' if DEBUG else 'production',
-        'root': BASE_DIR,
-    }
-
-    import rollbar
-
-    rollbar.init(**ROLLBAR)
 
 # Social Django
 
@@ -222,10 +198,11 @@ SITE_ID = 1
 
 LANGUAGES = [
     ('en', 'English'),
+    ('fr', 'French'),
 ]
 
 CMS_TEMPLATES = [
-    ('base.html', 'Base page template'),
+    ('cms/page.html', 'Page template'),
 ]
 
 MEDIA_URL = "/media/"
@@ -234,4 +211,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 # Tailwind
 
 TAILWIND_APP_NAME = 'theme'
-INTERNAL_IPS = "127.0.0.1"
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+

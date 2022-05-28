@@ -1,0 +1,17 @@
+{% load cms_tags sekizai_tags tailwind_tags %}
+
+{{ '<' }}{{ '!DOCTYPE html>' }}
+<html lang="en">
+
+<head>
+    {% include "components/head_meta.html" %}
+    <title>{% page_attribute "page_title" %} - Primal Mahjong Club</title>
+    {% tailwind_css %}
+    {% render_block "css" %}
+</head>
+
+<body>
+    {% cms_toolbar %}
+    {% placeholder "content" %}
+    {% render_block "js" %}
+</body>

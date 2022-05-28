@@ -22,8 +22,9 @@
       <sourceFolder url="file://$MODULE_DIR$/www" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/svelte/public/build" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
-      <excludeFolder url="file://$MODULE_DIR$/staticfiles" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/staticfiles" />
+      <excludeFolder url="file://$MODULE_DIR$/theme/static" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

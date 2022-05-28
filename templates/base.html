@@ -1,20 +1,32 @@
-{% load cms_tags sekizai_tags tailwind_tags %}
+{% load tailwind_tags django_htmx %}
 
 {{ '<' }}{{ '!DOCTYPE html>' }}
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>{% page_attribute "page_title" %} - Primal Mahjong Club</title>
+{% block head %}
+{% include "components/head_meta.html" %}
+{% endblock %}
 
-    {% tailwind_css %}
-    {% render_block "css" %}
+{% block title %}
+{% if title %}
+<title>{{ title }} - Primal Mahjong Club</title>
+{% elseif %}
+<title>Primal Mahjong Club</title>
+{% endif %}
+{% endblock %}
+
+{% block css %}
+{% tailwind_css %}
+{% endblock %}
 </head>
 
 <body>
-{% cms_toolbar %}
-{% placeholder "content" %}
-{% render_block "js" %}
+{% block content %}{% endblock %}
+
+{% block scripts %}
+{% django_htmx_script %}
+{% endblock %}
 </body>
 
 </html>
