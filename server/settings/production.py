@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from .base import *
 
 
-DEBUG = False
-
 ALLOWED_HOSTS = [
     'primalmahjong.club',
     'primal-mahjong-website.herokuapp.com'
