@@ -21,4 +21,5 @@ urlpatterns = [
     path('social/', include('social_django.urls'), name='social'),
     path('accounts/', include('accounts.urls'), name='accounts'),
     path("__reload__/", include('django_browser_reload.urls')),
+    path('', include('www.urls'), name='www'),
 ]
