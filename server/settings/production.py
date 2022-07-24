@@ -35,9 +35,6 @@ if env('ROLLBAR_TOKEN') != '':
     ROLLBAR = {
         'access_token': env('ROLLBAR_TOKEN'),
         'environment': 'production',
+        'branch': 'main',
         'root': BASE_DIR,
     }
-
-    import rollbar
-
-    rollbar.init(**ROLLBAR)
