@@ -33,13 +33,6 @@ environ.Env.read_env(BASE_DIR / '.env')
 SECRET_KEY = env('SECRET_KEY')
 
 
-# COOKIES
-# Recommended by `manage.py check --deploy`
-# SESSION_COOKIE_SECURE = SECURE_SSL_REDIRECT = CSRF_COOKIE_SECURE = False if DEBUG else True
-
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-
-
 # Application definition
 
 INSTALLED_APPS = [
