@@ -1,0 +1,17 @@
+{
+  "name": "primal-mahjong-website",
+  "version": "1.0.0",
+  "description": "NodeJS resources",
+  "repository": "git@github.com:taksuyu/primal-mahjong-website.git",
+  "author": "Michael Borden <michael@quiet.space>",
+  "private": true,
+  "dependencies": {
+    "parcel": "^2.6.2",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.6"
+  },
+  "scripts": {
+    "build": "parcel build theme/main.css"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
+}

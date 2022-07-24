@@ -7,11 +7,11 @@ __pycache__
 staticfiles
 *.sqlite3
 
-# Svelte
-svelte/public
-
-# Tailwind
-theme/static
+# Node, Yarn, etc.
+.parcel-cache
+dist
+node_modules
+yarn-error.log
 
 # Code
 .history

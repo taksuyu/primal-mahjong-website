@@ -20,9 +20,5 @@ from django.urls import include, path, re_path
 urlpatterns = [
     path('social/', include('social_django.urls'), name='social'),
     path('accounts/', include('accounts.urls'), name='accounts'),
-    # path('events/', include('events.urls'), name='events'),
-    # path('', include('www.urls'), name='www'),
     path("__reload__/", include('django_browser_reload.urls')),
-    re_path(r'^admin/', admin.site.urls),
-    re_path(r'^', include('cms.urls')),
 ]

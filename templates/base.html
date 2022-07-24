@@ -1,4 +1,4 @@
-{% load tailwind_tags django_htmx %}
+{% load django_htmx %}
 
 {{ '<' }}{{ '!DOCTYPE html>' }}
 <html lang="en">
@@ -9,15 +9,11 @@
 {% endblock %}
 
 {% block title %}
-{% if title %}
-<title>{{ title }} - Primal Mahjong Club</title>
-{% elseif %}
-<title>Primal Mahjong Club</title>
-{% endif %}
+{% include "components/title.html" %}
 {% endblock %}
 
 {% block css %}
-{% tailwind_css %}
+{# tailwind css link #}
 {% endblock %}
 </head>
 

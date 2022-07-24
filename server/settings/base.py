@@ -32,16 +32,17 @@ environ.Env.read_env(BASE_DIR / '.env')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
+
 # COOKIES
 # Recommended by `manage.py check --deploy`
 # SESSION_COOKIE_SECURE = SECURE_SSL_REDIRECT = CSRF_COOKIE_SECURE = False if DEBUG else True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+
 # Application definition
 
 INSTALLED_APPS = [
-    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,23 +54,7 @@ INSTALLED_APPS = [
     'accounts',
     'social_django',
     'django_htmx',
-    # 'django_svelte',
-    'cms',
-    'djangocms_text_ckeditor',
-    # 'djangocms_link',
-    # 'djangocms_file',
-    # 'djangocms_picture',
-    # 'djangocms_video',
-    # 'djangocms_googlemap',
-    'djangocms_snippet',
-    'djangocms_style',
-    'menus',
-    'treebeard',
-    'sekizai',
-    'tailwind',
-    'theme',
     'django_browser_reload',
-    'events',
 ]
 
 MIDDLEWARE = [
@@ -83,11 +68,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django_htmx.middleware.HtmxMiddleware',
-    'cms.middleware.user.CurrentUserMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
-    'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware',
-    'cms.middleware.utils.ApphookReloadMiddleware',
     'django_browser_reload.middleware.BrowserReloadMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
@@ -108,8 +88,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
-                'sekizai.context_processors.sekizai',
-                'cms.context_processors.cms_settings',
             ],
         },
     },
@@ -128,12 +106,14 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
 
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': env.db()
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -153,6 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -166,24 +147,26 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
-    # BASE_DIR / "svelte" / "public" / "build",
-    BASE_DIR / "theme" / "static",
+    BASE_DIR / "dist",
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATIC_URL = '/static/'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 # Social Django
 
@@ -191,27 +174,4 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_JSONFIELD_ENABLED = True
 SOCIAL_AUTH_DISCORD_KEY = env('DISCORD_API_ID')
 SOCIAL_AUTH_DISCORD_SECRET = env('DISCORD_API_SECRET')
-
-# Django CMS
-
-SITE_ID = 1
-
-LANGUAGES = [
-    ('en', 'English'),
-    ('fr', 'French'),
-]
-
-CMS_TEMPLATES = [
-    ('cms/page.html', 'Page template'),
-]
-
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
-
-# Tailwind
-
-TAILWIND_APP_NAME = 'theme'
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
 

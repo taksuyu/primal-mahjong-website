@@ -20,9 +20,13 @@ ALLOWED_HOSTS = [
     'primal-mahjong-website.herokuapp.com'
 ]
 
+
 # COOKIES
 # Recommended by `manage.py check --deploy`
-SESSION_COOKIE_SECURE = SECURE_SSL_REDIRECT = CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True
+X_FRAME_OPTIONS = 'DENY'
 
 
 # Rollbar
