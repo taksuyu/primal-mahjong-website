@@ -5,7 +5,7 @@ description = ""
 authors = ["Michael Borden <michael@quiet.space>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "3.10.5"
 Django = "^3.2"
 social-auth-app-django = "^5.0.0"
 psycopg2-binary = "^2.9.1"
