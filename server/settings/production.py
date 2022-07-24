@@ -21,14 +21,6 @@ ALLOWED_HOSTS = [
 ]
 
 
-# COOKIES
-# Recommended by `manage.py check --deploy`
-SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-CSRF_COOKIE_SECURE = True
-X_FRAME_OPTIONS = 'DENY'
-
-
 # Rollbar
 
 if env('ROLLBAR_TOKEN') != '':
