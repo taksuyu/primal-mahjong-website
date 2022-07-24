@@ -15,7 +15,8 @@ from .base import *
 
 ALLOWED_HOSTS = [
     'primalmahjong.club',
-    'primal-mahjong-website.herokuapp.com'
+    'primal-mahjong-website.herokuapp.com',
+    '0.0.0.0',
 ]
 
 
