@@ -41,4 +41,3 @@ if env('ROLLBAR_TOKEN') != '':
     import rollbar
 
     rollbar.init(**ROLLBAR)
-
